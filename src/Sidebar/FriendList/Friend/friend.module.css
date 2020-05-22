@@ -1,0 +1,30 @@
+.friend {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.friend__avatar {
+    margin-right: 1rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+}
+
+.friend__name {
+
+}
+.friend__avatar__container {
+
+}
+
+@media screen and (max-width: 1200px) {
+    .friend {
+        justify-content: center;
+        flex-direction: column;
+    }
+}

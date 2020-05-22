@@ -1,0 +1,10 @@
+.interlocutor {
+    margin-bottom: 1rem;
+}
+
+.dialogsNames {
+    text-align: left;
+    width: 25%;
+    min-width: 150px;
+    margin-right: 1rem;
+}

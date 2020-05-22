@@ -11,8 +11,8 @@ const Header = (props) => {
              <h5><i className={classes.person_name +" fa fa-user-circle-o"}></i>{props.userName}</h5>
          </span>
          <div className="ml-auto ">
-             {props.isLogIn && <Auth /> }
-             {!props.isLogIn && <LogOut/>}
+             {!props.isLogIn && <Auth /> }
+             {props.isLogIn && <LogOut/>}
          </div>
      </header>
     )

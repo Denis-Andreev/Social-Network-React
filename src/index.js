@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDOM from "react-dom";
+import React from "react";
+import {BrowserRouter} from "react-router-dom";
+import App from "./App";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import store from './Redux/redux-store';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+let rerenderThree = (state) => {
+    debugger;
+    ReactDOM.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App data={state}
+                     userName={state.currentUser.userName}
+                     isLogIn={state.currentUser.isLogIn}
+                     userId={state.currentUser.userId}
+                     dispatch={store.dispatch.bind(store)}
+                />
+            </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+    debugger;
+}
+rerenderThree(store.getState());
+
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderThree(state);
+});

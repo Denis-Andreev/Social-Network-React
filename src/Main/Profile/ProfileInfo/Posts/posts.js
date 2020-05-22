@@ -6,7 +6,12 @@ import classes from './posts.module.css'
 const Posts = (props) => {
 
     let posts = props.posts.map(function(elem) {
-        return (<Post authorAvatar={elem.authorAvatar} postText={elem.postText} likesCount={elem.likesCount}/>)
+        return (<Post
+                    id={elem.id}
+                    authorAvatar={elem.authorAvatar}
+                    postText={elem.postText}
+                    likesCount={elem.likesCount}
+                />)
     })
 
     return (

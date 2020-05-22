@@ -1,0 +1,16 @@
+.profile_info__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.profile__avatar {
+    width: 300px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+.info_list {
+    margin-left: 1rem;
+}
+.info__item h6{
+    display: inline-block;
+    width: 6rem;
+}
