@@ -1,0 +1,13 @@
+.wrapper {
+    margin: 2rem 0;
+    padding-bottom: 2rem;
+    width: 80%;
+}
+.wrapper span {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+textarea {
+    width: 100%;
+    resize: none;
+}

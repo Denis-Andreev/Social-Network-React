@@ -1,0 +1,13 @@
+header {
+    background: white;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.21);
+    margin: 1rem 0;
+    padding: 1rem;
+}
+.logo {
+
+}
+.person_name {
+    margin-right: 1rem;
+    font-size: 2rem;
+}

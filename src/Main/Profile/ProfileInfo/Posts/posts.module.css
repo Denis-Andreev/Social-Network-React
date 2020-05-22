@@ -1,0 +1,32 @@
+.posts {
+    margin: 2rem 0;
+}
+.item {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.author_avatar {
+    min-width: 4rem;
+    min-height: 4rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+.post_text {
+}
+
+.likesCount {
+    text-align: center;
+    color: white;
+    background: url(https://www.startyourbusinessmag.com/wp-content/uploads/2019/03/love_business_1553782149.png) no-repeat bottom;
+    background-size: cover;
+    margin-left: auto;
+    line-height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    padding-top: .2rem;
+}
