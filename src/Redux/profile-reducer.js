@@ -83,20 +83,21 @@ const profileReducer = (state = profile, action) => {
                 authorAvatar: "https://stud.kubsau.ru/Content/PersonsPhotos/Default.jpg",
                 likesCount: 0,
             };
-            if(!state.newPostText.trim()) {
-                return;
-            }
-            return {
-                ...state,
-                posts: [...state.posts, newPost],
-                newPostText: "",
+            if(state.newPostText) {
+                return {
+                    ...state,
+                    posts: [...state.posts, newPost],
+                    newPostText: "",
+                }
+            } else {
+                return state;
             }
             break;
         }
         case UPDATE_NEW_POST_TEXT: {
             return {
                 ...state,
-                newPostText: action.newText.trim(),
+                newPostText: action.newText,
             }
             break;
         }

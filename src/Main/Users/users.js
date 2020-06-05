@@ -13,7 +13,6 @@ const Users= (props) => {
         users: []
     });
     function showUsers() {
-        debugger;
         let showingUsers = [];
         let usersArray = props.users;
         for (let index = usersState.visibleUsers; index < usersState.visibleUsers + pagesCount; index++) {
@@ -31,6 +30,7 @@ const Users= (props) => {
                           age={usersArray[index].age}
                           country={usersArray[index].country}
                           city={usersArray[index].city}
+                          friends={usersArray[index].friends}
                           status={usersArray[index].status}
                           isFollow={isFollow}
                           toggleFollow={props.toggleFollow}/>
@@ -45,7 +45,7 @@ const Users= (props) => {
 
     useEffect(() => {
         showUsers();
-    },[]);
+    },[props.users]);
 
     return (
         <div className={" section_wrapper"}>
@@ -61,7 +61,6 @@ const Users= (props) => {
 export default Users;
 
 const User = (props) => {
-
     let displayValue = props.userId == props.currentUserId ? "none" : "block";
     let buttonClass = props.isFollow == "Follow" ? "btn btn-dark " : "btn btn-light ";
 

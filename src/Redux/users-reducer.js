@@ -11,7 +11,7 @@ export const setUserStatusActionCreator = (userId, newStatus) => ({type: SET_USE
 const usersPage = {
     users: [
         {
-            userId: 0,
+            userId: '0',
             userName:"",
             avatar: "https://stud.kubsau.ru/Content/PersonsPhotos/Default.jpg",
             gender: "Male",
@@ -1009,7 +1009,7 @@ const usersReducer = (state = usersPage, action) => {
 
         }
         case TOGGLE_FOLLOW: {
-            if(+action.currentUserId == +action.userId) {
+            if(action.currentUserId == action.userId) {
                 return state;
             }
             let userIsFollowed = false;
@@ -1021,8 +1021,8 @@ const usersReducer = (state = usersPage, action) => {
                     if(elem.friends.length == 0) {
                         return;
                     }
-                    if(elem.friends.indexOf(+action.currentUserId) != -1) {
-                        subscriberPosOnFriendList = elem.friends.indexOf(+action.currentUserId);
+                    if(elem.friends.indexOf(action.currentUserId) != -1) {
+                        subscriberPosOnFriendList = elem.friends.indexOf(action.currentUserId);
                         userIsFollowed = true;
                         return;
                     }
@@ -1040,7 +1040,7 @@ const usersReducer = (state = usersPage, action) => {
                     });
                 return stateCopy;
             } else {
-                stateCopy.users[userIndex].friends = [...state.users[userIndex].friends, +action.currentUserId];
+                stateCopy.users[userIndex].friends = [...state.users[userIndex].friends, action.currentUserId];
                 return stateCopy;
             }
         }

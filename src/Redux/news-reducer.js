@@ -62,19 +62,20 @@ const newsState = {
 const newsReducer = (state = newsState, action) => {
     switch(action.type) {
         case ADD_NEWS:  {
-            return {
-                ...state,
-                news: [...state.news,{
-                    authorId: action.authorInfo.authorId,
-                    authorAvatar: action.authorInfo.authorAvatar,
-                    newsType: action.newsType,
-                    newsTitle: action.newsTitle,
-                    newsBody: action.newsBody,
-                    newsMedia: action.newsMedia,
-                    date: new Date(Date.now()),
-                    likesCount: 0,
-                }]
-            }
+            return state;
+            // return {
+            //     ...state,
+            //     news: [...state.news,{
+            //         authorId: action.authorInfo.authorId,
+            //         authorAvatar: action.authorInfo.authorAvatar,
+            //         newsType: action.newsType,
+            //         newsTitle: action.newsTitle,
+            //         newsBody: action.newsBody,
+            //         newsMedia: action.newsMedia,
+            //         date: new Date(Date.now()),
+            //         likesCount: 0,
+            //     }]
+            // }
         }
         default: {
             return state;
