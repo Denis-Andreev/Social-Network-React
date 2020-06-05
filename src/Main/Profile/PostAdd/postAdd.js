@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import classes from "./postAdd.module.css"
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../../Redux/profile-reducer";
 
 
 const PostAdd = (props) => {
@@ -11,13 +10,13 @@ const PostAdd = (props) => {
     function newPostEditing(e) {
         if (!e.shiftKey && e.key == "Enter") {
             e.preventDefault();
-            props.dispatch(addPostActionCreator());
+            props.addPost();
         }
         addLine();
     }
     function newPostChange() {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostActionCreator(text));
+        props.updateNewPost(text);
     }
     // Corrected rows count on editing
     function addLine() {
@@ -39,7 +38,7 @@ const PostAdd = (props) => {
                     rows="6">
                 </textarea>
             <button className={" float-right btn btn-primary btn-lg"}
-                    onClick={ () => props.dispatch(addPostActionCreator()) }>Add post</button>
+                    onClick={ () =>  props.addPost() }>Add post</button>
         </div>
     )
 }

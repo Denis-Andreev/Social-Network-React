@@ -1,12 +1,14 @@
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const ADD_POST = "ADD-POST";
+const SET_STATUS = "SET-STATUS";
 
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const updateNewPostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
-
+export const setStatusActionCreator = (newStatus) => ({type: SET_STATUS, newStatus});
 
 let profile = {
     profileInfo: {
+        userId: 0,
         avatar: "https://stud.kubsau.ru/Content/PersonsPhotos/Default.jpg",
         gender: "Male",
         birthdayDay: "27",
@@ -16,6 +18,7 @@ let profile = {
         lastName: "Andreev",
         country: "Russia",
         city: "Krasnodar",
+        status: "",
         get birthday() {
             return this.birthdayDay + "." + this.birthdayMonth + "." + this.birthdayYear;
         },
@@ -75,7 +78,7 @@ const profileReducer = (state = profile, action) => {
     switch(action.type) {
         case ADD_POST: {
             let newPost = {
-                id: 6,
+                id: null,
                 postText: state.newPostText,
                 authorAvatar: "https://stud.kubsau.ru/Content/PersonsPhotos/Default.jpg",
                 likesCount: 0,
@@ -83,21 +86,33 @@ const profileReducer = (state = profile, action) => {
             if(!state.newPostText.trim()) {
                 return;
             }
-            state.posts.push(newPost);
-            state.newPostText = "";
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostText: "",
+            }
             break;
         }
-
         case UPDATE_NEW_POST_TEXT: {
-            state.newPostText = action.newText.trim();
+            return {
+                ...state,
+                newPostText: action.newText.trim(),
+            }
             break;
         }
-
+        case SET_STATUS: {
+            return {
+                ...state,
+                profileInfo: {
+                    ...state.profileInfo,
+                    status: action.newStatus,
+                }
+            }
+        }
         default: {
             return state;
         }
     }
-    return state;
 }
 
 export default profileReducer;

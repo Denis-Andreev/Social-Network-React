@@ -12,6 +12,9 @@ const Menu = () => {
                     <NavLink activeClassName="" to={"/profile"} >Profile</NavLink>
                 </ListGroup.Item>
                 <ListGroup.Item>
+                    <NavLink activeClassName="" to={"/users"} >Users</NavLink>
+                </ListGroup.Item>
+                <ListGroup.Item>
                     <NavLink activeClassName="" to={"/messages"} >Messages</NavLink>
                 </ListGroup.Item>
                 <ListGroup.Item>

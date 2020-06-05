@@ -1,0 +1,18 @@
+form {
+    min-width: 320px;
+    width: 30%;
+}
+input, button {
+    margin-bottom: 1rem;
+}
+
+.loginContainer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

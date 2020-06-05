@@ -1,0 +1,56 @@
+.users {
+    width: 100%;
+    padding: 2rem;
+}
+.users a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.users a:visited {
+    color: inherit;
+}
+.user {
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.showMore {
+    display: block;
+    margin: 0 auto;
+}
+.userSidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.userAvatar {
+    height: 8rem;
+    width: 8rem;
+    overflow: hidden;
+    border-radius: 100%;
+    margin-bottom: .5rem;
+}
+
+.userBody {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 1px solid silver;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userBody_mainInfo {
+
+}
+
+.userBody_location {
+    text-align: right;
+    margin-left: auto;
+}

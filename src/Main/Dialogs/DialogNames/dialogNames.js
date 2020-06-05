@@ -8,7 +8,7 @@ import {changeCurrentDialogActionCreator} from "../../../Redux/dialogs-reducer";
 const DialogNames = (props) => {
     let dialogNames = props.interlocutors.map(function(elem) {
        return (
-           <DialogNamesItem dispatch={props.dispatch} userId={elem.userId} userName={elem.userName} />
+           <DialogNamesItem changeCurrentDialog={props.changeCurrentDialog} userId={elem.userId} userName={elem.userName} />
        )
     });
     return (
@@ -22,7 +22,7 @@ const DialogNames = (props) => {
 const DialogNamesItem = (props) => {
   return (
       <div className={classes.interlocutor}>
-          <NavLink onClick={() => props.dispatch(changeCurrentDialogActionCreator(props.userId)) }
+          <NavLink onClick={() => props.changeCurrentDialog(props.userId) }
                    to={"/messages/" + props.userId} >
               <span>{ props.userName }</span>
           </NavLink>

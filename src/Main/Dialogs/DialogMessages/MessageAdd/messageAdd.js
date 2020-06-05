@@ -1,22 +1,22 @@
 import React, {createRef} from "react";
 import classes from "./messageAdd.module.css"
-import {sendDialogMessageActionCreator, updateNewDialogMessagesActionCreator} from "../../../../Redux/dialogs-reducer";
 
 
 
 const MessageAdd = (props) => {
+
     const newMessageElement = createRef();
     // Edit control
     function newMessageEditing(e) {
         if (!e.shiftKey && e.key == "Enter") {
             e.preventDefault();
-            props.dispatch(sendDialogMessageActionCreator());
+            props.sendDialogMessage();
         }
         addLine();
     }
     function newMessageChange() {
         let body = newMessageElement.current.value;
-        props.dispatch(updateNewDialogMessagesActionCreator(body));
+        props.updateNewDialogMessages(body);
     }
     // Corrected rows count on editing
     function addLine() {
@@ -25,6 +25,11 @@ const MessageAdd = (props) => {
             newMessageElement.current.rows = rowCount;
         }
     }
+    function sendMessage() {
+        props.sendDialogMessage();
+        props.getDialogMessage();
+    }
+
     // TODO On first open dialog message is undefined. This is a bad fix. Rewrite it
     let message;
     let messageIsExists = false;
@@ -34,6 +39,7 @@ const MessageAdd = (props) => {
             messageIsExists = true;
         }
     })
+
     if (messageIsExists == false) {
         message = "";
     }
@@ -50,7 +56,7 @@ const MessageAdd = (props) => {
                     rows="5">
                 </textarea>
                 <button className={" float-right btn btn-primary btn-lg"}
-                        onClick={ () => props.dispatch(sendDialogMessageActionCreator()) }>Send</button>
+                        onClick={sendMessage} >Send</button>
         </div>
     )
 

@@ -9,8 +9,23 @@
 }
 .info_list {
     margin-left: 1rem;
+    width: 100%;
 }
 .info__item h6{
     display: inline-block;
     width: 6rem;
+}
+
+.status {
+}
+
+.changeStatusButton {
+    float: right;
+}
+.changeStatusButton:hover {
+    color: #007bff;
+}
+
+.error {
+    margin-top: 1rem;
 }

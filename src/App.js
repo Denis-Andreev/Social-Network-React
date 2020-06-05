@@ -1,22 +1,23 @@
 import React from 'react';
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import Main from './Main/main'
+import {MainContainer} from "./Main/mainContainer";
+import {LoginContainer} from "./Login/loginContainer";
 
 
 const App = (props) => {
-    debugger;
     return (
         <div>
-            <Main
-                data={props.data}
-                userId={props.userId}
-                isLogIn={props.isLogIn}
-                userName={props.userName}
-                dispatch={props.dispatch}
-            />
+            <Switch>
+                <Route path="/login">
+                    <LoginContainer />
+                </Route>
+                <Route path="/">
+                    <MainContainer />
+                </Route>
+            </Switch>
         </div>
     );
 }

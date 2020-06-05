@@ -12,7 +12,7 @@ const Header = (props) => {
          </span>
          <div className="ml-auto ">
              {!props.isLogIn && <Auth /> }
-             {props.isLogIn && <LogOut/>}
+             {props.isLogIn && <LogOut toggleAuth={props.toggleAuth} />}
          </div>
      </header>
     )
@@ -20,8 +20,8 @@ const Header = (props) => {
 const Auth = (props) => {
     return (
         <span>
-            <LogIn  />
-            <SignUp />
+            <LogIn />
+            <SignUp/>
         </span>
     )
 }
@@ -38,7 +38,7 @@ const SignUp = (props) => {
 
 const LogOut = (props) => {
     return (
-        <NavLink className="btn btn-dark" to={"/login"}>Log out</NavLink>
+        <NavLink className="btn btn-dark" to={"/login"} onClick={props.toggleAuth}>Log out</NavLink>
     )
 }
 

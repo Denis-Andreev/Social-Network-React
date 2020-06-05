@@ -4,27 +4,17 @@ import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 
 import store from './Redux/redux-store';
+import {Provider} from "react-redux";
 
-let rerenderThree = (state) => {
-    debugger;
-    ReactDOM.render(
-        <React.StrictMode>
+window.store = store;
+
+ReactDOM.render(
+    <React.StrictMode>
+        <Provider store={store}>
             <BrowserRouter>
-                <App data={state}
-                     userName={state.currentUser.userName}
-                     isLogIn={state.currentUser.isLogIn}
-                     userId={state.currentUser.userId}
-                     dispatch={store.dispatch.bind(store)}
-                />
+                <App />
             </BrowserRouter>
-        </React.StrictMode>,
-        document.getElementById('root')
-    );
-    debugger;
-}
-rerenderThree(store.getState());
-
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderThree(state);
-});
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);

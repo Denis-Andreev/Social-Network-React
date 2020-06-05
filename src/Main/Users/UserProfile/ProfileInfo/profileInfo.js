@@ -1,38 +1,34 @@
 import React from "react";
 
-import classes from './profileInfo.module.css'
-import StatusChange from "./StatusChange/statusChange";
+import classes from '../../../Profile/ProfileInfo/profileInfo.module.css'
 
 
 
-const ProfileInfo = (props) => {
+const ProfileInfo = (props,) => {
+    let currentUserInfo = props.users.find((elem) => {
+        if (props.userId == elem.userId) {
+            return elem;
+        }
+    })
+
     return (
         //TODO Current user info is incorrect!
         <div className={classes.profile_info__wrapper}>
-            <ProfileAvatar profileAvatar={props.profileInfo.avatar} />
-            <InfoList showedInfo={props.profileInfo.showedInfo}
-                      profileInfo={props.profileInfo}
-                      setUserStatus={props.setUserStatus}
-                      localeSetStatus={props.localeSetStatus}
-            />
+            <ProfileAvatar profileAvatar={currentUserInfo.avatar} />
+            <InfoList showedInfo={currentUserInfo.showedInfo} info={currentUserInfo}/>
         </div>
     )
 }
 
 const InfoList = (props) => {
     let list = props.showedInfo.map(function(elem, index) {
-        return (<InfoListItem infoValue={props.profileInfo[elem[0]]} infoType={elem[1]} key={index}/>)
+        return (<InfoListItem infoValue={props.info[elem[0]]} infoType={elem[1]} key={index}/>)
     })
     return (
         <div className={classes.info_list}>
             {list}
             <div className={classes.status}>
-                {props.profileInfo.status}
-                <StatusChange
-                    userId={props.profileInfo.userId}
-                    setUserStatus={props.setUserStatus}
-                    localeSetStatus={props.localeSetStatus}
-                />
+                {props.info.status}
             </div>
         </div>
     )

@@ -4,3 +4,20 @@
     background-color: white;
     box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.21);
 }
+
+.blockBelow:hover {
+    position: relative;
+    background: silver;
+}
+.blockBelow::before {
+    content: '\27A4';
+    transform: rotate(-90deg);
+    font-size: 3rem;
+    color: lightslategray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+
+}

@@ -1,0 +1,47 @@
+[
+
+  '{{repeat(7, 7)}}',
+  {
+    userId: '{{objectId()}}',
+    userName: '',
+    avatar: 'https://stud.kubsau.ru/Content/PersonsPhotos/Default.jpg',
+    gender: '{{gender()}}',
+    birthdayDay: '12',
+    birthdayMonth: '12',
+    birthdayYear: '1988',
+    firstName: '{{firstName()}}',
+    lastName: '{{surname()}}',
+    country: 'Russia',
+    city: 'Moscow',
+    status: '{{lorem(5, "words")}}',
+    get birthday() {
+                return this.birthdayDay + "." + this.birthdayMonth + "." + this.birthdayYear;
+            },
+            get age() {
+                var birthday = new Date(+this.birthdayYear,+this.birthdayMonth,+this.birthdayDay);
+                var currentDate = new Date();
+                var age = (currentDate.getTime() - birthday.getTime()) / (1000*60*60*24*365);
+                return Math.round(age);
+            },
+            get fullName() {
+                return this.firstName + " " + this.lastName
+            },
+    showedInfo: [
+                ["fullName","Full name"],
+                ["gender","Gender"],
+                ["age","Age"],
+                ["country","Country"],
+                ["city","City"]
+            ],
+    friends: [],
+    posts: [
+      '{{repeat(4)}}',
+      {
+        id: '{{index()}}',
+        postText: '{{lorem(15, "words")}}',
+        authorAvatar: 'https://stud.kubsau.ru/Content/PersonsPhotos/Default.jpg',
+        likesCount: '0'
+      }
+    ],
+  }
+]

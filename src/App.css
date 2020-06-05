@@ -1,11 +1,13 @@
 body {
     background: #EAF0F2;
-    height: 200vh;
+    height: 100vh;
     word-wrap: break-word;
     font-family: Roboto;
     line-height: 1.8;
 }
-
+main {
+    margin-bottom: 1rem;
+}
 .section_wrapper {
     width: 69%;
     margin-left: 1rem;
